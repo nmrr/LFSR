@@ -23,20 +23,28 @@ SOFTWARE.
 */
 
 #include <iostream>
-#include <LFSR.h>
+#include "LFSR.h"
 
 using namespace std;
 
+// This example is going to calculate the length of a register
+
 int main(int argc, char **argv)
 {
+    // Create a 24 bits register, by default all bits are set to 0
     LFSR lfsr(24);
+    
+    // Set the first bit to 1
     lfsr.setBit(0, true);
 
+    // Save the register
     uint32_t * output;
     lfsr.save(output);
 
+    // Counter to count the size of the register
     uint64_t counter = 0;
-
+    
+    // Iterate while the output's value is different from the initial state
     do
     {
         lfsr.rightShift(lfsr.getFirstBit() xor lfsr.getBit(1) xor lfsr.getBit(4));
