@@ -11,4 +11,10 @@ LFSR can be used to generate pseudorandom numbers but it's possible to use it to
 
 **./lfsr4096 | ffplay -f u8 -ar 44100 -ac 2 -i pipe:0**
 
-This command is sending output data from the LFSR to the speakers. In the samples folder, lfsr4096.cpp and lfst128.cpp are using first and last bits to generate data. lfsr1024.cpp use a different equation so the music is different. You can adjuste the size of the register and the equation to create your own music. 
+This command sends output data from the LFSR to the speakers. In the samples folder, lfsr4096.cpp and lfst128.cpp are using first and last bits to generate data. lfsr1024.cpp use a different equation so the music is different. You can adjuste the size of the register and the equation to create your own music. 
+
+It's also possible to create interesting shapes with a register :
+
+**./lfsr4096 | ffplay -f rawvideo -pixel_format rgb24 -video_size 512x512 -framerate 30 -an -i pipe:0**
+
+This command sends data from the register to the screen.
