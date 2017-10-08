@@ -5,6 +5,8 @@ To build the sample : **g++ -std=c++11 LFSR.cpp main.cpp -o lfsr**
 
 Output of the sample is : **counter = 16383**
 
+Documentation will be added asap, please watch main.cpp and samples folder to understand how the class works.
+
 ----------------------------------------
 
 LFSR can be used to generate pseudorandom numbers but it's possible to use it to play music. In a lot of case, the system will produce noise but, in some cases, the system will produce interesting tones. When the first bit and the last bit are xored, the length of the register is very short but the output doesn't look like pseudorandom numbers. You can listen the music by using this command : 
