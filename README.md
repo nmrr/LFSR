@@ -18,3 +18,7 @@ It's also possible to create interesting shapes with a register :
 **./lfsr4096 | ffplay -f rawvideo -pixel_format rgb24 -video_size 512x512 -framerate 30 -an -i pipe:0**
 
 This command sends data from the register to the screen.
+
+----------------------------------------
+
+A5/1 stream cipher has just been added to the samples folder. There are two versions, one use left shift, the other use right shift. Output data is the same.
