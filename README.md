@@ -21,4 +21,4 @@ This command sends data from the register to the screen.
 
 ----------------------------------------
 
-A5/1 stream cipher has just been added to the samples folder. There are two versions, one use left shift, the other use right shift. Output data is the same.
+A5/1 stream cipher has just been added to the samples folder. There are two versions, one use left shift, the other use right shift. Output data are the same.
