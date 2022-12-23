@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 
+Copyright (c) 2017 https://github.com/nmrr
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,11 +27,6 @@ SOFTWARE.
 uint32_t LFSR::getSize()
 {
     return binarySize;
-}
-
-uint32_t LFSR::getArrayElement(uint32_t bitPosition)
-{
-    return array[bitPosition];
 }
 
 uint32_t LFSR::getArraySize()

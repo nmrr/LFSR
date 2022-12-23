@@ -1,26 +1,135 @@
 # LFSR
 An efficient linear feedback shift register (LFSR) class in C++
 
-To build the sample : **g++ -std=c++11 LFSR.cpp main.cpp -o lfsr**
+# How to use this library ?
 
-Output of the sample is : **counter = 16383**
+Copy **LFSR.c** and **LFSR.h** to your project and import the library on your code :
+```cpp
+#include "LFSR.h"
+```
 
-Documentation will be added asap, please watch main.cpp and samples folder to understand how the class works.
+To create an LFSR : (by default all bits are set to 0. Here a 15 bits LFSR is created)
+```cpp
+LFSR lfsr(15);
+```
 
-----------------------------------------
+To initialize the LFSR, the first bit is set to 1
+```cpp
+lfsr.setBit(0, true);
+```
 
-LFSR can be used to generate pseudorandom numbers but it's possible to use it to play music. In a lot of case, the system will produce noise but, in some cases, the system will produce interesting tones. When the first bit and the last bit are xored, the length of the register is very short but the output doesn't look like pseudorandom numbers. You can listen the music by using this command : 
+To perform a right shift with X0 xor X1 as feedback (X15 + X14 + 1 in polynomial notation)
+```cpp
+lfsr.rightShift(lfsr.getFirstBit() xor lfsr.getBit(1) xor lfsr.getBit(4));
+```
 
-**./lfsr4096 | ffplay -f u8 -ar 44100 -ac 2 -i pipe:0**
+Display first 8-bit of the LFSR :
+```cpp
+lfsr.get8bit()
+```
 
-This command sends output data from the LFSR to the speakers. In the samples folder, lfsr4096.cpp and lfst128.cpp are using first and last bits to generate data. lfsr1024.cpp use a different equation so the music is different. You can adjuste the size of the register and the equation to create your own music. 
+# All functionalities explained :
 
-It's also possible to create interesting shapes with a register :
+Get the size in bit of the register :
+```cpp
+uint32_t getSize();
+```
 
-**./lfsr4096 | ffplay -f rawvideo -pixel_format rgb24 -video_size 512x512 -framerate 30 -an -i pipe:0**
+Get the raw value of the 
+```cpp
+uint32_t getArrayElement(uint32_t bitPosition);
+```
 
-This command sends data from the register to the screen.
+Get the size of internal 32-bit array used for the register
+```cpp
+uint32_t getArraySize();
+```
 
-----------------------------------------
+Perform a right shift
+```cpp
+void rightShift(bool last);
+```
 
-A5/1 stream cipher has just been added to the samples folder. There are two versions, one use left shift, the other use right shift. Output data are the same.
+Perform a left shift
+```cpp
+void leftShift(bool first);
+```
+
+Get first 8-bit 
+```cpp
+uint8_t get8bit();
+```
+
+Get first 16-bit
+```cpp
+uint16_t get16bit();
+```
+
+Get first 32-bit
+```cpp
+uint32_t get32bit();
+```
+
+Get the value at a specific position in the internal 32-bit array used for the register
+```cpp
+uint32_t get32bitArray(uint32_t position);
+```
+
+Get a specific bit :
+```cpp
+bool getBit(uint32_t bitPosition);
+```
+
+Get the first bit (equivalent to getBit(0) :
+```cpp
+bool getFirstBit();
+```
+
+Get the last bit :
+```cpp
+bool getLastBit();
+```
+
+Set a specific bit
+```cpp
+void setBit(uint32_t bitPosition, bool value);
+```
+
+Set the first bit (equivalent to setBit(0, value))
+```cpp
+void setFirstBit(bool value);
+```
+
+Set the last bit
+```cpp
+void setLastBit(bool value);
+```
+
+Save the content of the register to a buffer
+```cpp
+void save(uint32_t * &output);
+```
+
+Compare the register to a saved register
+```cpp
+bool compare(uint32_t * &output);
+```
+
+Restaure the register with a saved register 
+```cpp
+void set(uint32_t * &output);
+```
+
+## Examples 
+
+The example calculates the length cycle of a 15 bits register with X15 + X14 + 1 as feedback
+
+To build the sample : 
+```
+g++ -std=c++11 LFSR.cpp main.cpp -o lfsr
+```
+
+Output of the sample is : 
+```
+counter = 32767
+```

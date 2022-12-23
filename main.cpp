@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 
+Copyright (c) 2017 https://github.com/nmrr
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,12 +27,12 @@ SOFTWARE.
 
 using namespace std;
 
-// This example is going to calculate the length of a register
+// This example will calculate the of the sequence of a 24 bits register with (x0) xor (x1) xor (x4) as feedback
 
 int main(int argc, char **argv)
 {
     // Create a 24 bits register, by default all bits are set to 0
-    LFSR lfsr(24);
+    LFSR lfsr(15);
     
     // Set the first bit to 1
     lfsr.setBit(0, true);
@@ -41,13 +41,12 @@ int main(int argc, char **argv)
     uint32_t * output;
     lfsr.save(output);
 
-    // Counter to count the size of the register
     uint64_t counter = 0;
     
-    // Iterate while the output's value is different from the initial state
+    // Iterate while the output value is not equal to the initial state
     do
     {
-        lfsr.rightShift(lfsr.getFirstBit() xor lfsr.getBit(1) xor lfsr.getBit(4));
+        lfsr.rightShift(lfsr.getFirstBit() xor lfsr.getBit(1));
         counter++;
     }
     while(!lfsr.compare(output));

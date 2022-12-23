@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 
+Copyright (c) 2017 https://github.com/nmrr
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -96,7 +96,6 @@ public:
     }
 
     uint32_t getSize();
-    uint32_t getArrayElement(uint32_t bitPosition);
     uint32_t getArraySize();
     void rightShift(bool last);
     void leftShift(bool first);

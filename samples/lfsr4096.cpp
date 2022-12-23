@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 
+Copyright (c) 2017 https://github.com/nmrr
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,6 +42,5 @@ int main(int argc, char **argv)
         cout << lfsr.get8bit();
     }
 
-    
     return (0);
 }
