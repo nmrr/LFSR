@@ -3,7 +3,7 @@ An efficient linear feedback shift register (LFSR) class written in C++
 
 # How to use this library ?
 
-Copy **LFSR.c** and **LFSR.h** to your project and import the library on your code :
+Copy **LFSR.c** and **LFSR.h** to your project and import the library :
 ```cpp
 #include "LFSR.h"
 ```
