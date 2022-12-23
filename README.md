@@ -133,3 +133,5 @@ Output of the sample is :
 ```
 counter = 32767
 ```
+
+Sample folder contains some examples of use of this library like **A5/1 encryption**
