@@ -1,5 +1,5 @@
 # LFSR
-An efficient linear feedback shift register (LFSR) class in C++
+An efficient linear feedback shift register (LFSR) class written in C++
 
 # How to use this library ?
 
