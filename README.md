@@ -134,4 +134,4 @@ Output of the sample is :
 counter = 32767
 ```
 
-Sample folder contains some use cases like **A5/1 encryption** 
+**Samples** folder contains some use cases like **A5/1 encryption** 

@@ -27,11 +27,11 @@ SOFTWARE.
 
 using namespace std;
 
-// This example will calculate the of the sequence of a 24 bits register with (x0) xor (x1) xor (x4) as feedback
+// This example will calculate the length of the sequence of a 15 bits register with (x0) xor (x1) as feedback
 
 int main(int argc, char **argv)
 {
-    // Create a 24 bits register, by default all bits are set to 0
+    // Create a 15 bits register, by default all bits are set to 0
     LFSR lfsr(15);
     
     // Set the first bit to 1
